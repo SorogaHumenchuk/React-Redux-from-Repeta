@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import MenuGrid from './MenuGrid/MenuGrid';
 import * as API from '../services/api';
+import MenuFilter from './MenuGrid/MenuFilter/MenuFilter';
+
+const filterMenu = (filter, menu) =>
+  menu.filter(el => el.name.toLowerCase().includes(filter.toLowerCase()));
 
 export default class MenuPage extends Component {
   state = {
     menu: [],
+    filter: '',
   };
 
   componentDidMount() {
@@ -17,6 +22,12 @@ export default class MenuPage extends Component {
         menu: state.menu.filter(item => item.id !== id),
       })),
     );
+  };
+
+  handleFilterChange = e => {
+    this.setState({
+      filter: e.target.value,
+    });
   };
 
   handleShowMoreInfo = id => {
@@ -39,14 +50,18 @@ export default class MenuPage extends Component {
   };
 
   render() {
-    const { menu } = this.state;
+    const { menu, filter } = this.state;
+
+    const filteredMenu = filterMenu(filter, menu);
+
     return (
       <div>
         <button type="button" onClick={this.handleAddMenuItem}>
           Добавить блюдо
         </button>
+        <MenuFilter filter={filter} onFilterChange={this.handleFilterChange} />
         <MenuGrid
-          items={menu}
+          items={filteredMenu}
           onDelete={this.handleDeleteItem}
           onShowMoreInfo={this.handleShowMoreInfo}
         />
