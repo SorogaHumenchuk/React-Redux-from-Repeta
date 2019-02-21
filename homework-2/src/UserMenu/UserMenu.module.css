@@ -1,0 +1,19 @@
+.userMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+  position: relative;
+}
+.name {
+  font-size: 20px;
+}
+.photo {
+  max-width: 80px;
+}
+.aboutUser {
+  position: absolute;
+  left: 0;
+  bottom: -130px;
+  width: 100%;
+}

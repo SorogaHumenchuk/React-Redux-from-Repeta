@@ -1,0 +1,8 @@
+.menuList {
+  margin: auto;
+  width: 1200px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
