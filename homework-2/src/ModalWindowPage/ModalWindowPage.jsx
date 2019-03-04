@@ -6,8 +6,27 @@ export default class ModalWindowPage extends Component {
     isModalOpen: false
   };
 
+  openModal = () => {
+    this.setState({
+      isModalOpen: true
+    });
+  };
+
+  onClose = () => {
+    this.setState({
+      isModalOpen: false
+    });
+  };
+
   render() {
     const { isModalOpen } = this.state;
-    return <>{isModalOpen && ModalWindow}</>;
+    return (
+      <>
+        <button type="button" onClick={this.openModal}>
+          OpenModal
+        </button>
+        {isModalOpen && <ModalWindow onClose={this.onClose} />}
+      </>
+    );
   }
 }
