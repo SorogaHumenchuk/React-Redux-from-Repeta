@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import * as API from '../services/api';
-import OrderHistoryGrid from './OrderHistoryGrid/OrderHistoryGrid';
-import styles from './OrderHistory.css';
+import React, { Component } from "react";
+import * as API from "../services/api";
+import OrderHistoryGrid from "./OrderHistoryGrid/OrderHistoryGrid";
+import styles from "./OrderHistory.module.css";
 
 export default class OrderHistory extends Component {
   state = {
-    orders: [],
+    orders: []
   };
 
   componentDidMount() {
