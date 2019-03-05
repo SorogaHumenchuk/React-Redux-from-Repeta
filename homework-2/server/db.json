@@ -126,16 +126,28 @@
       "id": 9
     },
     {
-      "name": "New name 1547813281973",
+      "name": "New name 1551703183020",
       "image": "http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg",
-      "price": 114.81954916696021,
+      "price": 79.62137382062387,
       "id": 10
     },
     {
-      "name": "New name 1547813282156",
+      "name": "New name 1551703185136",
       "image": "http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg",
-      "price": 6.744786865500121,
+      "price": 69.46124227204092,
       "id": 11
+    },
+    {
+      "name": "New name 1551703185856",
+      "image": "http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg",
+      "price": 41.88155126309499,
+      "id": 12
+    },
+    {
+      "name": "New name 1551705919111",
+      "image": "http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg",
+      "price": 3.1733562081155675,
+      "id": 13
     }
   ],
   "orderHistory": [

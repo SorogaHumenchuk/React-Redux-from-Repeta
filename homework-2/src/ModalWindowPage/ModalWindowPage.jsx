@@ -25,7 +25,9 @@ export default class ModalWindowPage extends Component {
         <button type="button" onClick={this.openModal}>
           OpenModal
         </button>
-        {isModalOpen && <ModalWindow onClose={this.onClose} />}
+        {isModalOpen && (
+          <ModalWindow onClose={this.onClose} isModalOpen={isModalOpen} />
+        )}
       </>
     );
   }
