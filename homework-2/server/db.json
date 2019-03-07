@@ -120,34 +120,10 @@
       ]
     },
     {
-      "name": "New name 1547813270494",
+      "name": "New name 1551878848011",
       "image": "http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg",
-      "price": 117.74176043365878,
+      "price": 119.02657455617219,
       "id": 9
-    },
-    {
-      "name": "New name 1551703183020",
-      "image": "http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg",
-      "price": 79.62137382062387,
-      "id": 10
-    },
-    {
-      "name": "New name 1551703185136",
-      "image": "http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg",
-      "price": 69.46124227204092,
-      "id": 11
-    },
-    {
-      "name": "New name 1551703185856",
-      "image": "http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg",
-      "price": 41.88155126309499,
-      "id": 12
-    },
-    {
-      "name": "New name 1551705919111",
-      "image": "http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg",
-      "price": 3.1733562081155675,
-      "id": 13
     }
   ],
   "orderHistory": [
@@ -213,13 +189,6 @@
       "price": "806.00",
       "address": "67303 Garth Haven",
       "rating": 8
-    },
-    {
-      "id": 9,
-      "date": "8/11/2018",
-      "price": "143.00",
-      "address": "28386 Crooks Ramp",
-      "rating": 1
     },
     {
       "id": 10,

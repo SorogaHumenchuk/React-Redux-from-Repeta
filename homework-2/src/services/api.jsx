@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
-const menuUrl = 'http://localhost:3004/menu';
-const ORDER_HISTORY_URL = 'http://localhost:3004/orderHistory';
+const menuUrl = "http://localhost:3004/menu";
+const ORDER_HISTORY_URL = "http://localhost:3004/orderHistory";
 
 const getAllMenuItems = () =>
   axios.get(menuUrl).then(response => response.data);
@@ -18,10 +18,20 @@ const addMenuItem = item =>
 const getOrderHistory = () =>
   axios.get(ORDER_HISTORY_URL).then(response => response.data);
 
+const deleteOrderItem = id =>
+  axios
+    .delete(`${ORDER_HISTORY_URL}/${id}`)
+    .then(response => response.status === 200);
+
+const getOrderItemById = id =>
+  axios.get(`${ORDER_HISTORY_URL}/${id}`).then(response => response.data);
+
 export {
   getAllMenuItems,
   getMenuItemById,
   deleteMenuItem,
   addMenuItem,
   getOrderHistory,
+  deleteOrderItem,
+  getOrderItemById
 };

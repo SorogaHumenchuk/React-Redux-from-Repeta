@@ -1,7 +1,13 @@
-import React from 'react';
-import Order from './Order/Order';
+import React from "react";
+import Order from "./Order/Order";
 
-const OrderHistoryGrid = ({ orders }) => (
+const OrderHistoryGrid = ({
+  orders,
+  onDelete,
+  onGetInfo,
+  onCloseModal,
+  onOpenModal
+}) => (
   <React.Fragment>
     <thead>
       <tr>
@@ -19,6 +25,9 @@ const OrderHistoryGrid = ({ orders }) => (
             price={order.price}
             address={order.address}
             rating={order.rating}
+            onDelete={() => onDelete(order.id)}
+            onGetInfo={() => onGetInfo(order.id)}
+            onOpenModal={onOpenModal}
           />
         </tr>
       ))}

@@ -6,22 +6,24 @@ export default class ModalWindow extends Component {
 
   componentDidMount() {
     window.addEventListener("click", this.handleWindowClick);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    const { isModalOpen } = this.props;
-    return nextState.isModalOpen !== isModalOpen;
+    window.addEventListener("keydown", this.handleEscapeClick);
   }
 
   componentWillUnmount() {
     window.removeEventListener("click", this.handleWindowClick);
+    window.removeEventListener("keydown", this.handleEscapeClick);
   }
 
-  handleWindowClick = e => {
+  handleWindowClick = ({ target }) => {
     const { onClose } = this.props;
-    const isTargetInsideModal = this.modalRef.current.contains(e.target);
-    const { isModalOpen } = this.props;
-    if (!isModalOpen && !isTargetInsideModal) {
+    if (this.modalRef.current === target) {
+      onClose();
+    }
+  };
+
+  handleEscapeClick = ({ keyCode }) => {
+    const { onClose } = this.props;
+    if (keyCode === 27) {
       onClose();
     }
   };
@@ -29,8 +31,8 @@ export default class ModalWindow extends Component {
   render() {
     const { onClose } = this.props;
     return (
-      <div className={styles.backdrop}>
-        <div className={styles.modal} ref={this.modalRef}>
+      <div className={styles.backdrop} ref={this.modalRef}>
+        <div className={styles.modal}>
           <h2>Modal Window</h2>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil

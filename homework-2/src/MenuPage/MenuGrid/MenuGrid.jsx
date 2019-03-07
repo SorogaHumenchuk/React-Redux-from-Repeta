@@ -1,6 +1,6 @@
-import React from 'react';
-import MenuCard from './MenuCard/MenuCard';
-import styles from './MenuGrid.module.css';
+import React from "react";
+import MenuCard from "./MenuCard/MenuCard";
+import styles from "./MenuGrid.module.css";
 
 const MenuGrid = ({ items, onDelete, onShowMoreInfo }) => (
   <ul className={styles.menuList}>

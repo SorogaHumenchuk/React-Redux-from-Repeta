@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import MenuGrid from './MenuGrid/MenuGrid';
-import * as API from '../services/api';
-import MenuFilter from './MenuGrid/MenuFilter/MenuFilter';
+import React, { Component } from "react";
+import MenuGrid from "./MenuGrid/MenuGrid";
+import * as API from "../services/api";
+import MenuFilter from "./MenuGrid/MenuFilter/MenuFilter";
 
 const filterMenu = (filter, menu) =>
   menu.filter(el => el.name.toLowerCase().includes(filter.toLowerCase()));
@@ -9,7 +9,7 @@ const filterMenu = (filter, menu) =>
 export default class MenuPage extends Component {
   state = {
     menu: [],
-    filter: '',
+    filter: ""
   };
 
   componentDidMount() {
@@ -19,14 +19,14 @@ export default class MenuPage extends Component {
   handleDeleteItem = id => {
     API.deleteMenuItem(id).then(
       this.setState(state => ({
-        menu: state.menu.filter(item => item.id !== id),
-      })),
+        menu: state.menu.filter(item => item.id !== id)
+      }))
     );
   };
 
   handleFilterChange = e => {
     this.setState({
-      filter: e.target.value,
+      filter: e.target.value
     });
   };
 
@@ -38,14 +38,14 @@ export default class MenuPage extends Component {
     const ITEM = {
       name: `New name ${Date.now()}`,
       image:
-        'http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg',
-      price: Math.random() * 120,
+        "http://www.cairoscene.com//Content/Admin/Uploads/Articles/ArticleImages/e1bbeff7-2188-443a-8d5c-10b860c23b62.jpg",
+      price: Math.random() * 120
     };
 
     API.addMenuItem(ITEM).then(newItem =>
       this.setState(state => ({
-        menu: [...state.menu, newItem],
-      })),
+        menu: [...state.menu, newItem]
+      }))
     );
   };
 
