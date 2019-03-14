@@ -6,6 +6,7 @@ const Loading = () => {
     <>
       {console.log('Loading')}
       <h1 className={styles.loading}>Loading...</h1>
+      <div className={styles.container} />
     </>
   )
 }

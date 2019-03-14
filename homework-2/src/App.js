@@ -1,10 +1,10 @@
-import React from "react";
-import AppHeader from "./AppHeader/AppHeader";
-import MenuPage from "./MenuPage/MenuPage";
-import OrderHistory from "./OrderHistory/OrderHistory";
-import Auth from "./Auth/Auth";
-import MenuComentsApp from "./MenuComentsApp/MenuComentsApp";
-import ModalWindowPage from "./ModalWindowPage/ModalWindowPage";
+import React from 'react'
+import AppHeader from './AppHeader/AppHeader'
+import MenuPage from './MenuPage/MenuPage'
+import Auth from './Auth/Auth'
+import MenuComentsApp from './MenuComentsApp/MenuComentsApp'
+import ModalWindowPage from './ModalWindowPage/ModalWindowPage'
+import OrderHistory from './OrderHistory/OrderHistory'
 
 const App = () => (
   <div>
@@ -15,6 +15,6 @@ const App = () => (
     <Auth />
     <MenuComentsApp />
   </div>
-);
+)
 
-export default App;
+export default App

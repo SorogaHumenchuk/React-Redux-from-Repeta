@@ -4,6 +4,7 @@ import OrderHistoryGrid from './OrderHistoryGrid/OrderHistoryGrid'
 import styles from './OrderHistory.module.css'
 import ModalWindow from './ModalWindow/ModalWindow'
 import Loading from '../Loading/Loading'
+import CreateOrder from './CreateOrder/CreateOrder'
 
 export default class OrderHistory extends Component {
   state = {
@@ -18,11 +19,19 @@ export default class OrderHistory extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { isLoading } = this.state
-    if (prevState.isLoading === isLoading) {
+    const nextIsLoading = this.state.isLoading
+    const prevIsLoading = prevState.isLoading
+    if (prevIsLoading !== nextIsLoading) {
       this.setState({ isLoading: true })
-      console.log(isLoading)
     }
+  }
+
+  handleAddOrderItem = item => {
+    API.addOrderItem(item).then(newItem =>
+      this.setState(state => ({
+        orders: [newItem, ...state.orders],
+      })),
+    )
   }
 
   handleDeleteOrder = id => {
@@ -42,8 +51,8 @@ export default class OrderHistory extends Component {
   handleGetOrderInfo = id => {
     API.getOrderItemById(id).then(res =>
       this.setState({
-        order: res,
         isLoading: false,
+        order: res,
       }),
     )
     this.openModalOrderInfo()
@@ -59,6 +68,7 @@ export default class OrderHistory extends Component {
     const { orders, isModalOpenOrderInfo, order, isLoading } = this.state
     return (
       <>
+        <CreateOrder onSubmit={this.handleAddOrderItem} />
         <table className={styles.table}>
           <OrderHistoryGrid
             orders={orders}
@@ -66,10 +76,13 @@ export default class OrderHistory extends Component {
             onDelete={this.handleDeleteOrder}
           />
         </table>
-        {isModalOpenOrderInfo && (
-          <ModalWindow onCloseModal={this.closeModalOrderInfo} order={order} />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          isModalOpenOrderInfo && (
+            <ModalWindow onCloseModal={this.closeModalOrderInfo} order={order} />
+          )
         )}
-        {isLoading && <Loading />}
       </>
     )
   }
