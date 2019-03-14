@@ -1,68 +1,76 @@
-import React, { Component } from "react";
-import * as API from "../services/api";
-import OrderHistoryGrid from "./OrderHistoryGrid/OrderHistoryGrid";
-import styles from "./OrderHistory.module.css";
-import ModalOrderById from "./ModalOrderBiId/ModalOrderBiId";
+import React, { Component } from 'react'
+import * as API from '../services/api'
+import OrderHistoryGrid from './OrderHistoryGrid/OrderHistoryGrid'
+import styles from './OrderHistory.module.css'
+import ModalWindow from './ModalWindow/ModalWindow'
+import Loading from '../Loading/Loading'
 
 export default class OrderHistory extends Component {
   state = {
+    isLoading: false,
     orders: [],
     isModalOpenOrderInfo: false,
-    order: {}
-  };
+    order: {},
+  }
 
   componentDidMount() {
-    API.getOrderHistory().then(orders => this.setState({ orders }));
+    API.getOrderHistory().then(orders => this.setState({ orders }))
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { isLoading } = this.state
+    if (prevState.isLoading === isLoading) {
+      this.setState({ isLoading: true })
+      console.log(isLoading)
+    }
   }
 
   handleDeleteOrder = id => {
     API.deleteOrderItem(id).then(
       this.setState(state => ({
-        orders: state.orders.filter(item => item.id !== id)
-      }))
-    );
-  };
+        orders: state.orders.filter(item => item.id !== id),
+      })),
+    )
+  }
+
+  openModalOrderInfo = () => {
+    this.setState({
+      isModalOpenOrderInfo: true,
+    })
+  }
 
   handleGetOrderInfo = id => {
     API.getOrderItemById(id).then(res =>
       this.setState({
-        order: res
-      })
-    );
-  };
-
-  openModalOrderInfo = () => {
-    this.setState({
-      isModalOpenOrderInfo: true
-    });
-    this.handleGetOrderInfo();
-  };
+        order: res,
+        isLoading: false,
+      }),
+    )
+    this.openModalOrderInfo()
+  }
 
   closeModalOrderInfo = () => {
     this.setState({
-      isModalOpenOrderInfo: false
-    });
-  };
+      isModalOpenOrderInfo: false,
+    })
+  }
 
   render() {
-    const { orders, isModalOpenOrderInfo, order } = this.state;
+    const { orders, isModalOpenOrderInfo, order, isLoading } = this.state
     return (
       <>
         <table className={styles.table}>
           <OrderHistoryGrid
             orders={orders}
             onGetInfo={this.handleGetOrderInfo}
-            onOpenModal={this.openModalOrderInfo}
             onDelete={this.handleDeleteOrder}
           />
         </table>
         {isModalOpenOrderInfo && (
-          <ModalOrderById
-            order={order}
-            onCloseModal={this.closeModalOrderInfo}
-          />
+          <ModalWindow onCloseModal={this.closeModalOrderInfo} order={order} />
         )}
+        {isLoading && <Loading />}
       </>
-    );
+    )
   }
 }

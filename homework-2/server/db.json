@@ -135,20 +135,6 @@
       "rating": 10
     },
     {
-      "id": 1,
-      "date": "5/15/2018",
-      "price": "159.00",
-      "address": "262 Jovan Roads",
-      "rating": 4
-    },
-    {
-      "id": 2,
-      "date": "10/1/2018",
-      "price": "710.00",
-      "address": "331 Mills Mountains",
-      "rating": 9
-    },
-    {
       "id": 3,
       "date": "5/12/2018",
       "price": "567.00",
@@ -217,13 +203,6 @@
       "price": "606.00",
       "address": "42978 Hugh Mill",
       "rating": 7
-    },
-    {
-      "id": 14,
-      "date": "12/6/2017",
-      "price": "330.00",
-      "address": "58209 Bradford Views",
-      "rating": 3
     }
   ]
 }
