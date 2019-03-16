@@ -1,0 +1,14 @@
+.signIn {
+  display: inline-block;
+  background-color: #eee;
+}
+
+.signUp {
+  display: inline-block;
+  background-color: #eee;
+}
+input {
+  display: block;
+  padding: 5px 8px;
+  margin: 10px;
+}
